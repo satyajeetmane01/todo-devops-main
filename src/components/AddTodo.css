@@ -1,0 +1,203 @@
+/* AddTodo.css */
+.add-todo {
+  padding: 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(135deg, 
+    rgba(15, 23, 42, 0.6) 0%, 
+    rgba(30, 41, 59, 0.4) 100%);
+  backdrop-filter: blur(20px);
+  position: relative;
+}
+
+.add-todo::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 10% 20%, rgba(255, 215, 0, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 90% 80%, rgba(138, 43, 226, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.add-todo-main {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.todo-input {
+  flex: 1;
+  padding: 16px 20px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: rgba(255, 255, 255, 0.05);
+  color: #e2e8f0;
+  backdrop-filter: blur(10px);
+  position: relative;
+  z-index: 1;
+}
+
+.todo-input::placeholder {
+  color: rgba(226, 232, 240, 0.6);
+  font-weight: 400;
+}
+
+.todo-input:focus {
+  outline: none;
+  border-color: rgba(255, 215, 0, 0.5);
+  box-shadow: 
+    0 0 0 4px rgba(255, 215, 0, 0.1),
+    0 8px 25px rgba(0, 0, 0, 0.15);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.add-btn {
+  padding: 16px 20px;
+  background: linear-gradient(135deg, #ffd700 0%, #ffed4e 25%, #fbbf24 50%, #f59e0b 75%, #d97706 100%);
+  color: #0f0f23;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 60px;
+  position: relative;
+  overflow: hidden;
+  font-weight: 600;
+  box-shadow: 
+    0 4px 15px rgba(255, 215, 0, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.add-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.add-btn:hover::before {
+  left: 100%;
+}
+
+.add-btn:hover {
+  background: linear-gradient(135deg, #ffed4e 0%, #fbbf24 25%, #f59e0b 50%, #d97706 75%, #b45309 100%);
+  transform: translateY(-2px);
+  box-shadow: 
+    0 8px 25px rgba(255, 215, 0, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.2);
+}
+
+.add-btn:active {
+  transform: translateY(0);
+}
+
+.add-todo-options {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.option-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+  position: relative;
+  z-index: 1;
+}
+
+.option-group:hover {
+  border-color: rgba(255, 215, 0, 0.3);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.option-group svg {
+  color: rgba(255, 215, 0, 0.9);
+  flex-shrink: 0;
+  filter: drop-shadow(0 2px 8px rgba(255, 215, 0, 0.3));
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 2px;
+}
+
+.option-group:hover svg {
+  color: #ffd700;
+  filter: drop-shadow(0 4px 12px rgba(255, 215, 0, 0.4));
+  transform: scale(1.1);
+}
+
+.category-input,
+.priority-select,
+.due-date-input {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 14px;
+  font-weight: 500;
+  color: #e2e8f0;
+  min-width: 0;
+}
+
+.category-input::placeholder {
+  color: rgba(226, 232, 240, 0.5);
+}
+
+.category-input {
+  width: 120px;
+}
+
+.priority-select {
+  width: 100px;
+}
+
+.due-date-input {
+  width: 140px;
+}
+
+.priority-select option {
+  padding: 4px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .add-todo {
+    padding: 15px;
+  }
+  
+  .add-todo-main {
+    flex-direction: column;
+  }
+  
+  .add-todo-options {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .option-group {
+    justify-content: space-between;
+  }
+  
+  .category-input,
+  .priority-select,
+  .due-date-input {
+    width: 100%;
+  }
+}
