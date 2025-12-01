@@ -256,3 +256,18 @@ This project is perfect for learning:
 **Happy coding and learning DevOps! 🚀**
 
 For Jenkins setup, start here: [JENKINS_QUICKSTART.md](./JENKINS_QUICKSTART.md)
+
+
+
+---
+
+## 📓 Appendix: GitHub Actions CI Development Log
+
+### GitHub Actions CI Development Log
+
+- Initial pipeline failed due to unsupported dependency (`vercel` CLI) during npm install.
+- Resolved by separating CI responsibilities from deployment tooling.
+- Encountered ESLint failures caused by unused variables in React components.
+- Adjusted workflow to continue-on-error for ESLint while preserving reporting.
+- Final pipeline successfully installs, lints, builds, and archives artifacts.
+

@@ -67,7 +67,7 @@ function App() {
     isMuted: false
   });
 
-  // Load todos from localStorage on mount
+  // Load todos from localStorage on the mount
   useEffect(() => {
     const savedTodos = localStorage.getItem('todos');
     if (savedTodos) {
