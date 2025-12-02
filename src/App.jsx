@@ -80,7 +80,7 @@ function App() {
     }
   }, []);
 
-  // Save todos to localStorage whenever todos change
+  // Save todos to localStorage when todos change
   useEffect(() => {
     localStorage.setItem('todos', JSON.stringify(todos));
   }, [todos]);
@@ -91,7 +91,7 @@ function App() {
     .filter(Boolean)
   )];
 
-  // Filter todos based on search and filter criteria
+  // Filter todos based on search and filter criterias
   const filteredTodos = todos.filter(todo => {
     const matchesSearch = todo.text.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesStatus = 
